@@ -12,6 +12,6 @@ module.exports = {
 		.setDefaultMemberPermissions(PermissionFlagsBits.KickMembers),
 
 	execute: async (client, interaction) => {
-        interaction.reply({content: `Local: ${(new Date()).toLocaleString()}\nCST: ${getCST().toLocaleString()}`, ephemeral: true});
+        interaction.reply({content: `Local: ${(new Date()).toLocaleString()}\nCST: ${getCST().toLocaleString()}`});
     }
 };

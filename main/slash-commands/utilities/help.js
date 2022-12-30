@@ -6,9 +6,13 @@ const path = require('path');
 
 let summarizeCommand = (command) => {
     let str = `\`/${command.name}`;
-    for (let option of command.options) {
-        str += ` [${option}]`;
+
+    if (command.options) {
+        for (let option of command.options) {
+            str += ` [${option}]`;
+        }
     }
+    
     str +=`\`: ${command.description}`;
     return str;
 }

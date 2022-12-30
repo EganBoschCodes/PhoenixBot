@@ -2,7 +2,7 @@
   "name": "phoenix-bot",
   "version": "1.0.0",
   "description": "A general purpose discord moderation bot.",
-  "main": "main.js",
+  "main": "main/main.js",
   "scripts": {
     "test": "npm test",
     "start": "node ./main/main.js"

@@ -18,7 +18,8 @@ module.exports = {
 					{ name: 'Reporting', value: 'reporting channel' },
 					{ name: 'Welcome', value: 'welcome channel' },
 					{ name: 'Name Change', value: 'name change channel' },
-					{ name: 'General', value: 'general' }
+					{ name: 'General', value: 'general' },
+					{ name: 'Reaction Roles', value: 'reaction roles channel' }
 				)
 				}),
 

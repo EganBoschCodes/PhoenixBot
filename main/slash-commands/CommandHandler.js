@@ -39,8 +39,6 @@ module.exports = {
 		let guilds = await FireStore.getCollectionAsObj(FireStore.Collections.GUILD_SETTINGS);
 
 		for (let guild in guilds) {
-            if ((process.env.ENVIRONMENT === "dev" && guild !== "1022516286669987850") || (process.env.ENVIRONMENT !== "dev" && guild === "1022516286669987850")) continue;
-            
 			rest.put(Routes.applicationGuildCommands(CLIENT_ID, guild), { body: commands })
 				.then(() => console.log(`Successfully registered application commands in guild ${guild}.`))
 				.catch(console.error);
@@ -56,7 +54,10 @@ module.exports = {
         if (!command) return;
 
         try {
-            await command.execute(client, interaction);
+            
+            if (!command.subcommands) await command.execute(client, interaction);
+            else command.execute[interaction.options.getSubcommand()](client, interaction);
+
         } catch (error) {
             console.error(error);
             await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
